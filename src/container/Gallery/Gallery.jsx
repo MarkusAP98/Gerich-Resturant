@@ -41,11 +41,14 @@ const Gallery = () => {
       </div>
       <div className="apa__gallery-images">
         <div className="app__gallery-images_container" ref={scrollRef}>
-          {galleryImages.map((images, index) => (
+          {galleryImages.map((image, index) => (
             <div
               className="app__gallery-images_card flex__center"
               key={`gallery_image-${index + 1}`}
-            ></div>
+            >
+              <img src={image} alt="gallery"/>
+              <BsInstagram className="gallery__image-icon"/>
+            </div>
           ))}
         </div>
         <div className="app__gallery-images_arrows">
