@@ -9,21 +9,23 @@ import {
 
 import "./Gallery.css";
 
-const images =[images.gallery01, images.gallery02, images.gallery03, images.gallery04]
-
+const galleryImages = [
+  images.gallery01,
+  images.gallery02,
+  images.gallery03,
+  images.gallery04,
+];
 
 const Gallery = () => {
   const scrollRef = React.useRef(null);
-  const scroll = (direction) =>
- {
-  const { current } = scrollRef;
-  if (direction === 'left') {
-    current.scrollLeft -= 300;
-  } else {
-    current.scrollLeft += 300;
-  }
-
- } 
+  const scroll = (direction) => {
+    const { current } = scrollRef;
+    if (direction === "left") {
+      current.scrollLeft -= 300;
+    } else {
+      current.scrollLeft += 300;
+    }
+  };
   return (
     <div className="app__gallery flex-center">
       <div className="app__gallery-content">
@@ -39,7 +41,12 @@ const Gallery = () => {
       </div>
       <div className="apa__gallery-images">
         <div className="app__gallery-images_container" ref={scrollRef}>
-          {}
+          {galleryImages.map((images, index) => (
+            <div
+              className="app__gallery-images_card flex__center"
+              key={`gallery_image-${index + 1}`}
+            ></div>
+          ))}
         </div>
         <div className="app__gallery-images_arrows">
           <BsArrowLeftShort
